@@ -208,7 +208,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.78, y: 0.2, z: 0}
-  m_LocalScale: {x: 0.8, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 574316269}
@@ -230,17 +230,16 @@ MonoBehaviour:
   m_movementInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_jumpInput: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_reflectInput: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  m_maxLateralVelocity: 4
-  m_acceleration: 75
-  m_jumpImpulse: 9.5
+  m_maxLateralVelocity: 5
+  m_acceleration: 25
+  m_jumpImpulse: 10
   m_verticalJumpCap: 0.5
-  m_jumpStifleMax: 8
-  m_coyoteDuration: 0.05
-  m_gravity: -20
-  m_stifleGravity: -80
-  m_maxFallSpeed: -20
+  m_jumpStifleMax: 5
+  m_gravity: -9.8
+  m_stifleGravity: -29.400002
+  m_maxFallSpeed: -3
   m_boxcastOrigin: {fileID: 574316269}
-  m_boxcastSize: {x: 0.795, y: 1}
+  m_boxcastSize: {x: 0.1, y: 0.1}
   m_travelDistance: 0.05
   m_validGround:
     serializedVersion: 2
@@ -255,7 +254,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: e57917029b0942e4184abc22da87c885, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
