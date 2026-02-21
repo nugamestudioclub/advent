@@ -1,19 +1,26 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class ReflectionScript : MonoBehaviour
 {
-    [SerializeField] private Transform m_testpoint;
+    [Serializable]
+    private struct CopyData
+    {
+        public bool HasData;
+        public TileBase[] CopyTilesBuffer;
+        public Vector3Int[] CopyPositionsBuffer;
+        public Vector3Int BoundsPosition;
+    }
 
     [SerializeField] private Tilemap m_mainGrid;
     [SerializeField] private Tilemap m_reflectionGrid;
 
-    [SerializeField] private LocusScript[] m_locii;
-
-    private TileBase[,] m_copyBuffer;
-    private bool m_hasCopy;
+    private CopyData m_copyData;
 
     private Camera m_mainCamera;
+    private LocusScript[] m_locii;
 
     private void Awake()
     {
@@ -21,61 +28,71 @@ public class ReflectionScript : MonoBehaviour
         m_locii = FindObjectsByType<LocusScript>(FindObjectsSortMode.None);
     }
 
-    private void CopyRegion()
+    public void CopyRegion()
     {
-        if (FindOnscreenLocus(out var locus))
+        if (!FindOnscreenLocus(out var locus))
         {
             Debug.LogWarning("No locus found on screen.");
             return;
         }
 
         var bounds = locus.GetCopyBounds();
-        var locus_cellpos = m_mainGrid.WorldToCell(locus.GetPosition());
 
-        m_copyBuffer = new TileBase[bounds.x, bounds.y];
-        for (int x = 0; x < bounds.x; ++x)
+        if (bounds.size.z != 1)
         {
-            for (int y = 0; y < bounds.y; ++y)
-            {
-                var cell_pos = new Vector3Int(locus_cellpos.x + x, locus_cellpos.y + y);
-
-                if (!m_mainGrid.HasTile(cell_pos)) continue;
-
-                m_copyBuffer[x, y] = m_mainGrid.GetTile(cell_pos);
-            }
+            Debug.LogWarning("Bounds Z size must be 1, otherwise it will not enumerate.");
+            return;
         }
 
-        m_hasCopy = true;
+        m_copyData = new CopyData();
+        m_copyData.CopyTilesBuffer = new TileBase[(bounds.xMax - bounds.xMin) * (bounds.yMax - bounds.yMin)];
+        m_copyData.CopyPositionsBuffer = new Vector3Int[(bounds.xMax - bounds.xMin) * (bounds.yMax - bounds.yMin)];
+        m_copyData.BoundsPosition = bounds.position;
+
+        // both allPositionsWithin and GetTilesBlockNonAlloc are sequentially consistent
+        int index = 0;
+        foreach (var pos in bounds.allPositionsWithin) m_copyData.CopyPositionsBuffer[index++] = pos;
+        m_mainGrid.GetTilesBlockNonAlloc(bounds, m_copyData.CopyTilesBuffer);
+
+        m_copyData.HasData = true;
     }
 
-    private void PasteRegion()
+    public void PasteRegion()
     {
-        if (FindOnscreenLocus(out var locus))
+        if (!FindOnscreenLocus(out var locus))
         {
             Debug.LogWarning("No locus found on screen.");
             return;
         }
 
+        var copy_dest_bounds = locus.GetCopyBounds();
 
-        var locus_cellpos = m_mainGrid.WorldToCell(locus.GetPosition());
-
-        for (int x = 0; x < m_copyBuffer.GetLength(0); ++x)
+        var changes = new List<TileChangeData>();
+        for (int i = 0; i < m_copyData.CopyPositionsBuffer.Length; i++)
         {
-            for (int y = 0; y < m_copyBuffer.GetLength(1); ++y)
+            var offset = m_copyData.CopyPositionsBuffer[i] - m_copyData.BoundsPosition;
+
+            var target_position = copy_dest_bounds.position + offset;
+
+            // if the copy-dest bounds dont contain the relative position OR there's a blocking tile in main, go to next
+            if (!copy_dest_bounds.Contains(target_position)
+                || m_mainGrid.HasTile(target_position)) continue; // TODO: this will bug with decal tiles! is there a way to "tag" them so we can only focus on tagged ones?
+
+            var change_data = new TileChangeData()
             {
-                var target_position = new Vector3Int(locus_cellpos.x + x, locus_cellpos.y + y);
+                position = target_position,
+                tile = m_copyData.CopyTilesBuffer[i]
+            };
 
-                if (m_mainGrid.HasTile(target_position)) continue;
-
-                
-                /*
-                 * TODO
-                m_reflectionGrid.tile
-                m_copyBuffer[x, y] = m_mainGrid.GetTile(cell_pos);
-                */
-            }
+            changes.Add(change_data);
         }
+
+        m_reflectionGrid.SetTiles(changes.ToArray(), false);
+
+        m_copyData = default;
     }
+
+    public bool HasCopy() => m_copyData.HasData;
 
     private bool FindOnscreenLocus(out LocusScript valid)
     {
@@ -83,13 +100,15 @@ public class ReflectionScript : MonoBehaviour
         // it's a game jam tho, so K.I.S.S.
         foreach (var locus in m_locii)
         {
-            var vp = m_mainCamera.WorldToViewportPoint(locus.GetPosition());
+            var vp = m_mainCamera.WorldToViewportPoint(m_mainGrid.CellToWorld(locus.GetCenter()));
 
             // if oob, pass
             if (vp.x < 0 || vp.x > 1) continue;
             if (vp.y < 0 || vp.y > 1) continue;
 
             valid = locus;
+
+            Debug.Log("Found locus: " + valid);
 
             return true;
         }

@@ -38,6 +38,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private LayerMask m_validGround;
 
     private Rigidbody2D m_rigidbody;
+    private ReflectionScript m_reflBehavior;
 
     private float m_normalizedLateralInput;
     private bool m_isJumpDown;
@@ -53,6 +54,7 @@ public class PlayerScript : MonoBehaviour
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_reflBehavior = GetComponent<ReflectionScript>();
         m_currentGravity = m_gravity;
     }
 
@@ -61,6 +63,18 @@ public class PlayerScript : MonoBehaviour
         GatherInput();
 
         // TODO reflection
+        // DEBUG
+        if (m_reflectInput.action.WasPerformedThisFrame()) 
+        {
+            if (m_reflBehavior.HasCopy())
+            {
+                m_reflBehavior.PasteRegion();
+            }
+            else
+            {
+                m_reflBehavior.CopyRegion();
+            }
+        }
     }
 
     private void FixedUpdate()
