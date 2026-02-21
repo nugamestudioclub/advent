@@ -74,6 +74,7 @@ public class PlayerScript : MonoBehaviour
             {
                 m_reflBehavior.CopyRegion();
             }
+            //m_reflBehavior.DEBUG();
         }
     }
 
