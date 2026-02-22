@@ -839,7 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIScript
   m_reflScript: {fileID: 0}
   m_gridParent: {fileID: 5271080189625489324}
-  m_gridSize: {x: 89, y: 89}
+  m_container: {fileID: 3705360588032455420}
   m_gridLayout: {fileID: 5195567365229471461}
   m_gridItem: {fileID: 1796479458035432396, guid: 6015428aa16daf3419ebb064bfe5477f, type: 3}
   m_poolCount: 25
