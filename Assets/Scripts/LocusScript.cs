@@ -9,6 +9,7 @@ public class LocusScript : MonoBehaviour
     [SerializeField] private Tilemap m_grid;
     [SerializeField] private ParticleSystem m_system;
     [SerializeField] private LineRenderer m_renderer;
+    [SerializeField] private ParticleSystem m_centerSystem;
 
     private Vector3Int m_centerCell;
 
@@ -16,6 +17,8 @@ public class LocusScript : MonoBehaviour
     {
         ComputeCenter();
         UpdateVisuals();
+
+        m_centerSystem.transform.position = GetWorldPositionOfCenter();
     }
 
     public void Pulse()
