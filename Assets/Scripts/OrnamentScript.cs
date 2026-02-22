@@ -14,6 +14,7 @@ public class OrnamentScript : MonoBehaviour
     [SerializeField] private Transform m_toDisable;
     [SerializeField] private ParticleSystem m_collectSystem;
     [SerializeField] private ParticleSystem m_emissionSystem;
+    [SerializeField] private AudioSource m_collectSFX;
 
     private Vector3 m_startingPosition;
 
@@ -39,5 +40,6 @@ public class OrnamentScript : MonoBehaviour
 
         m_collectSystem.Play();
         m_emissionSystem.Stop();
+        m_collectSFX.Play();
     }
 }

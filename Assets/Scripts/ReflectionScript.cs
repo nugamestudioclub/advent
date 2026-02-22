@@ -15,6 +15,8 @@ public class ReflectionScript : MonoBehaviour
     public delegate void CopyDataChange(bool is_clear, TileBase[] tile_data, Vector3Int[] pos_data, Tilemap map);
     public event CopyDataChange OnCopyDataChange;
 
+    public event Action<LitePlayerAudio.SFXType> OnActionPerformed;
+
     [Serializable]
     private struct CopyData
     {
@@ -71,6 +73,7 @@ public class ReflectionScript : MonoBehaviour
 
         m_copyData.HasData = true;
         OnCopyDataChange?.Invoke(false, m_copyData.CopyTilesBuffer, m_copyData.CopyPositionsBuffer, m_mainGrid);
+        OnActionPerformed?.Invoke(LitePlayerAudio.SFXType.Copy);
 
         locus.Pulse();
     }
@@ -129,6 +132,7 @@ public class ReflectionScript : MonoBehaviour
         // invoke that we added some cells
         OnReflectionTilesChanged?.Invoke(event_cell_changes.ToArray(), m_reflectionGrid, CellChangeType.Created);
         OnCopyDataChange?.Invoke(true, null, null, null);
+        OnActionPerformed?.Invoke(LitePlayerAudio.SFXType.Paste);
 
         // change cache statuses
         m_copyData.HasData = false;

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class UIScript : MonoBehaviour
 {
     [SerializeField] private ReflectionScript m_reflScript;
     [SerializeField] private Transform m_gridParent;
-    [SerializeField] private Vector2 m_gridSize = new Vector2(95, 95);
+    [SerializeField] private RectTransform m_container;
     [SerializeField] private GridLayoutGroup m_gridLayout;
     [SerializeField] private Image m_gridItem;
     [SerializeField] private int m_poolCount = 25;
@@ -23,12 +24,17 @@ public class UIScript : MonoBehaviour
     private int m_count;
 
     private List<Image> m_pool;
+    private Vector2 m_gridSize;
 
     private void Awake()
     {
         m_pool = new List<Image>();
 
         m_totalCount = FindObjectsByType<OrnamentScript>(FindObjectsSortMode.None).Length;
+
+        m_gridSize = new Vector2(
+            m_container.rect.width - (m_gridLayout.padding.right + m_gridLayout.padding.left),
+            m_container.rect.height - (m_gridLayout.padding.top + m_gridLayout.padding.bottom));
 
         for (int i = 0; i < m_poolCount; i++)
         {
@@ -81,9 +87,6 @@ public class UIScript : MonoBehaviour
         m_gridLayout.cellSize = new Vector2(m_gridSize.x / maximal, m_gridSize.y / maximal);
 
         var list = EnableNumber(pos_data.Length);
-
-        // clear all
-        foreach (Image image in list) image.sprite = null;
 
         // for each position, enable with a sprite
         for (int i = 0; i < pos_data.Length; i++)
@@ -142,6 +145,8 @@ public class UIScript : MonoBehaviour
     private void OrnamentCollected()
     {
         ++m_count;
+
+        if (m_count >= m_totalCount) SceneManager.LoadScene("EndScene");
 
         RefreshOrnamentText();
     }
