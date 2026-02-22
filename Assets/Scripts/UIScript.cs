@@ -2,12 +2,19 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour
 {
+    [Header("Debug Cheat")]
+
+    [SerializeField] private InputActionReference m_debugBinding;
+
+    [Space]
+
     [SerializeField] private ReflectionScript m_reflScript;
     [SerializeField] private Transform m_gridParent;
     [SerializeField] private RectTransform m_container;
@@ -51,6 +58,14 @@ public class UIScript : MonoBehaviour
     {
         OrnamentScript.OnOrnamentCollected -= OrnamentCollected;
         m_reflScript.OnCopyDataChange -= ReflectionTilesChanged;
+    }
+
+    private void Update()
+    {
+        if (m_debugBinding.action.WasPressedThisFrame())
+        {
+            OrnamentCollected();
+        }
     }
 
     private void ReflectionTilesChanged(bool is_clear, TileBase[] tile_data, Vector3Int[] pos_data, Tilemap map)

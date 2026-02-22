@@ -837,6 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4c0888670ced747898a5c36a228940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIScript
+  m_debugBinding: {fileID: -8482307299164381007, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_reflScript: {fileID: 0}
   m_gridParent: {fileID: 5271080189625489324}
   m_container: {fileID: 3705360588032455420}
