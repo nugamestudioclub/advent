@@ -27,6 +27,10 @@ public class UIScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_numerator;
     [SerializeField] private TextMeshProUGUI m_denominator;
 
+    [Header("Flavor")]
+
+    [SerializeField] private TextMeshProUGUI m_flavorText;
+
     private int m_totalCount;
     private int m_count;
 
@@ -171,4 +175,6 @@ public class UIScript : MonoBehaviour
         m_numerator.text = m_count.ToString();
         m_denominator.text = m_totalCount.ToString();
     }
+
+    public void SetFlavor(string flavor) => m_flavorText.text = flavor;
 }
