@@ -54,7 +54,7 @@ MonoBehaviour:
   m_translationScale: 0.2
   m_toDisable: {fileID: 2355711526958015528}
   m_collectSystem: {fileID: 1260127882108502891}
-  m_emissionSystem: {fileID: 0}
+  m_emissionSystem: {fileID: 5197216632350711505}
 --- !u!50 &4651049808408022344
 Rigidbody2D:
   serializedVersion: 5
