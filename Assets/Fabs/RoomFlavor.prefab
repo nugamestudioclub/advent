@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 59183215381999139}
   - component: {fileID: 5016001362795827254}
   - component: {fileID: 5477536017085206825}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 7726119762390777744}
   - component: {fileID: 3930955008311976317}
   - component: {fileID: 7848541150190824805}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 28, y: 28}
+  m_Offset: {x: 28, y: 42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 5077613077029078482}
   - component: {fileID: 3243252778949338486}
   - component: {fileID: 8243887814561098496}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 7156964194729832988}
   - component: {fileID: 3622300845557400010}
   - component: {fileID: 1659350420636892612}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af173ba53b7a5d841b83c6dbad96289c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomFlavorScript
-  m_text: ICICLE CHAMBER
+  m_text: LEG UP
   m_isDefault: 1
 --- !u!1 &2957533176909340673
 GameObject:
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 5757050406109007752}
   - component: {fileID: 7636764945559455063}
   - component: {fileID: 5985106582284141151}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 4667680553004835124}
   - component: {fileID: 4689998402420396703}
   - component: {fileID: 3615915234288081743}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 8802819299726235154}
   - component: {fileID: 6814577613778137760}
   - component: {fileID: 4477646394871728252}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 2170286821858784874}
   - component: {fileID: 9135251643142710965}
   - component: {fileID: 7954194778893793346}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +788,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 28}
+  m_Offset: {x: 0, y: 42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 3147568390935468122}
   - component: {fileID: 36621874903515658}
   - component: {fileID: 7787467026353981392}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +953,7 @@ GameObject:
   - component: {fileID: 2297389125441354341}
   - component: {fileID: 2754501099821402383}
   - component: {fileID: 1445451713982071706}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 3779654645711556667}
   - component: {fileID: 4170776622512589271}
   - component: {fileID: 1910490774620712287}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,7 +1102,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 14, y: 28}
+  m_Offset: {x: 14, y: 42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af173ba53b7a5d841b83c6dbad96289c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomFlavorScript
-  m_text: FODDY'S FOLLY
+  m_text: ICICLE CHAMBER
   m_isDefault: 1
 --- !u!1 &6389048190745124345
 GameObject:
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 8840593825436963736}
   - component: {fileID: 2532186626303601434}
   - component: {fileID: 8633886983782913350}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 5856091139917201697}
   - component: {fileID: 8899221686687314400}
   - component: {fileID: 3265544418462162202}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1360,7 +1360,7 @@ GameObject:
   - component: {fileID: 5027790177724846751}
   - component: {fileID: 1450823190047180989}
   - component: {fileID: 6772458480055763473}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,7 +1416,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 42, y: 28}
+  m_Offset: {x: 42, y: 42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af173ba53b7a5d841b83c6dbad96289c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomFlavorScript
-  m_text: KEPT IN MIND
+  m_text: THE PEEK
   m_isDefault: 1
 --- !u!1 &7339311711521161772
 GameObject:
@@ -1488,7 +1488,7 @@ GameObject:
   - component: {fileID: 9177984145917765382}
   - component: {fileID: 4291004586434861837}
   - component: {fileID: 4804844811577119714}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1581,7 +1581,7 @@ GameObject:
   - component: {fileID: 3121080365942700357}
   - component: {fileID: 1931895700080727775}
   - component: {fileID: 8927122519405425482}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

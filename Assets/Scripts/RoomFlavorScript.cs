@@ -9,7 +9,7 @@ public class RoomFlavorScript : MonoBehaviour
 
     private void Awake()
     {
-        m_uiScript = GetComponent<UIScript>();
+        m_uiScript = FindFirstObjectByType<UIScript>();
 
         if (m_uiScript == null)
         {
