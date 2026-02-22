@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool m_drawDebugAlways = true;
+    [SerializeField] private InputActionReference m_resetBind;
 
     [Header("Input References")]
     [SerializeField] private InputActionReference m_movementInput;
@@ -57,11 +58,15 @@ public class PlayerScript : MonoBehaviour
     private bool m_wasGroundedPreviousFrame;
     private float m_coyoteTimestamp;
 
+    private Vector3 m_startPos;
+
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_reflBehavior = GetComponent<ReflectionScript>();
         m_currentGravity = m_gravity;
+
+        m_startPos = transform.position;
 
         MetricTracking.ResetMetrics();
     }
@@ -82,6 +87,11 @@ public class PlayerScript : MonoBehaviour
             {
                 m_reflBehavior.CopyRegion();
             }
+        }
+
+        if (m_resetBind.action.WasPressedThisFrame())
+        {
+            m_rigidbody.position = m_startPos;
         }
     }
 
