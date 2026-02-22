@@ -5,29 +5,41 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class MainMenuUIScript : MonoBehaviour
+public class EndUIScript : MonoBehaviour
 {
     [SerializeField] private TextReelScript m_reelScript;
     [SerializeField] private GradualTextRevealScript m_gradualReveal;
+
+    [Space]
+
+    [SerializeField] private TextMeshProUGUI m_timeText;
+    [SerializeField] private TextMeshProUGUI m_reflectionsText;
+
+    [Space]
 
     [SerializeField] private InputActionReference m_confirmReference;
 
     [SerializeField] private string m_targetScene;
 
-    private bool m_canStart;
+    private bool m_canSwap;
 
     private void Start()
     {
-        m_canStart = false;
+        m_canSwap = false;
+
+        var (time, count) = MetricTracking.GetMetrics();
+
+        m_timeText.text = "TIME " + TimeSpan.FromSeconds(time).ToString(@"hh\:mm\:ss"); ;
+        m_reflectionsText.text = count + " REFLECTIONS PLACED";
 
         StartCoroutine(IE_Roll());
     }
 
     private void Update()
     {
-        if (m_canStart && m_confirmReference.action.WasPerformedThisFrame())
+        if (m_canSwap && m_confirmReference.action.WasPerformedThisFrame())
         {
-            m_canStart = false;
+            m_canSwap = false;
 
             SceneManager.LoadScene(m_targetScene);
         }
@@ -43,7 +55,7 @@ public class MainMenuUIScript : MonoBehaviour
 
         yield return new WaitUntil(() => m_gradualReveal.IsDone());
 
-        m_canStart = true;
+        m_canSwap = true;
     }
 
 }

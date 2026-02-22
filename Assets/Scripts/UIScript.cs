@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -144,6 +145,8 @@ public class UIScript : MonoBehaviour
     private void OrnamentCollected()
     {
         ++m_count;
+
+        if (m_count >= m_totalCount) SceneManager.LoadScene("EndScene");
 
         RefreshOrnamentText();
     }

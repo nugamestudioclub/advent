@@ -56,25 +56,26 @@ public class PlayerScript : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_reflBehavior = GetComponent<ReflectionScript>();
         m_currentGravity = m_gravity;
+
+        MetricTracking.ResetMetrics();
     }
 
     private void Update()
     {
         GatherInput();
 
-        // TODO reflection
-        // DEBUG
-        if (m_reflectInput.action.WasPerformedThisFrame()) 
+        if (m_isReflectPerformed) 
         {
             if (m_reflBehavior.HasCopy())
             {
                 m_reflBehavior.PasteRegion();
+
+                MetricTracking.IncrementReflection();
             }
             else
             {
                 m_reflBehavior.CopyRegion();
             }
-            //m_reflBehavior.DEBUG();
         }
     }
 
