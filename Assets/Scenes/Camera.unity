@@ -5638,6 +5638,14 @@ PrefabInstance:
       propertyPath: m_reflScript
       value: 
       objectReference: {fileID: 1387189669}
+    - target: {fileID: 3098122312092015648, guid: e22a7b4b72358a944b8f1bde6289b393, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705360588032455420, guid: e22a7b4b72358a944b8f1bde6289b393, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4263967812166904658, guid: e22a7b4b72358a944b8f1bde6289b393, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5718,9 +5726,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5658757746618180110, guid: e22a7b4b72358a944b8f1bde6289b393, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130.9
+      objectReference: {fileID: 0}
     - target: {fileID: 8720748855255669502, guid: e22a7b4b72358a944b8f1bde6289b393, type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193668355754946324, guid: e22a7b4b72358a944b8f1bde6289b393, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
