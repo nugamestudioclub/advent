@@ -56,7 +56,7 @@ Material:
     - _EnableExternalAlpha: 0
     - _Intensity: 0.025
     - _Speed: 1
-    - _VIntensity: 0.1
+    - _VIntensity: 0.2
     - _VSpeed: 10
     - _ZWrite: 0
     m_Colors:

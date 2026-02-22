@@ -1,8 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    public delegate void AnimatorUpdateEvent(Vector2 velocity, bool grounded_prev);
+    public event AnimatorUpdateEvent OnVelocityUpdate;
+
+    public event Action<LitePlayerAudio.SFXType> OnSFXPlay;
+
     [Header("Debug")]
     [SerializeField] private bool m_drawDebugAlways = true;
 
@@ -89,6 +95,8 @@ public class PlayerScript : MonoBehaviour
         ComputeVerticalVelocity(timescale);
 
         m_rigidbody.MovePosition(m_rigidbody.position + new Vector2(m_lateralVelocity * timescale, m_verticalVelocity * timescale));
+
+        OnVelocityUpdate?.Invoke(new Vector2(m_lateralVelocity, m_verticalVelocity), m_wasGroundedPreviousFrame);
     }
 
     private void GatherInput()
@@ -140,6 +148,9 @@ public class PlayerScript : MonoBehaviour
         if (jump_eligible && m_isJumpDown && is_under_vertical_cap)
         {
             m_verticalVelocity += m_jumpImpulse; // don't scale this as it is an impulse
+
+            // not the best to have this here, but crunch time demands it
+            OnSFXPlay?.Invoke(LitePlayerAudio.SFXType.Jump);
         }
 
         // behavior to handle cutting off jumps early
