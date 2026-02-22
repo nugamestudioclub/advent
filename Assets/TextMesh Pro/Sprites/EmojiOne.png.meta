@@ -1,18 +1,27 @@
 fileFormatVersion: 2
-guid: 45081686fda303f4589422e3673907b0
+guid: dffef66376be4fa480fb02b19edbe903
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -7100265086127913775
-    second: advent_tilemap_0
-  - first:
-      213: 779422024703702028
-    second: advent_tilemap_1
+  fileIDToRecycleName:
+    21300000: EmojiOne_0
+    21300002: EmojiOne_1
+    21300004: EmojiOne_2
+    21300006: EmojiOne_3
+    21300008: EmojiOne_4
+    21300010: EmojiOne_6
+    21300012: EmojiOne_7
+    21300014: EmojiOne_8
+    21300016: EmojiOne_9
+    21300018: EmojiOne_10
+    21300020: EmojiOne_11
+    21300022: EmojiOne_12
+    21300024: EmojiOne_13
+    21300026: EmojiOne_5
+    21300028: EmojiOne_14
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 5
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -26,23 +35,18 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
-  streamingMipmaps: 0
-  streamingMipmapsPriority: 0
-  vTOnly: 0
-  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: 1
+  textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
-    aniso: 1
-    mipBias: 0
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -54,28 +58,21 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
-  applyGammaDecoding: 0
-  swizzle: 50462976
-  cookieLightType: 0
   platformSettings:
-  - serializedVersion: 4
+  - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -83,12 +80,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
+  - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -96,12 +91,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -109,398 +102,330 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: advent_tilemap_0
+      name: EmojiOne_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 8
-        height: 8
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d4cc32e58ac67d90800000000000000
-      internalID: -7100265086127913775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: advent_tilemap_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 24
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c047490b33011da00800000000000000
-      internalID: 779422024703702028
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: advent_tilemap_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 24
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03669103b7096b34ab8e244126aab185
-      internalID: 988069843
+      spriteID: 4bcc36da2108f2c4ba3de5c921d25c3c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_3
+      name: EmojiOne_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 24
-        width: 8
-        height: 8
+        x: 128
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83df8658f3c6f5e4c99569c88709f66b
-      internalID: 2090145411
+      spriteID: e9eea8093eaeaee4d901c4553f572c22
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_4
+      name: EmojiOne_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49451da35411dcc42a3692e39b0fde70
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmojiOne_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f65709664b924904790c850a50ca82bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmojiOne_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 8
-        height: 8
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2252deaf30279a4aaa13e08a7ca90a0
-      internalID: 1197972680
+      spriteID: 5b92c568a5ec9ad4b9ed90e271f1c9a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_5
+      name: EmojiOne_6
       rect:
         serializedVersion: 2
-        x: 8
-        y: 16
-        width: 8
-        height: 8
+        x: 256
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fd66284b3e9b7d44926ef1ddb49c50a
-      internalID: -818835467
+      spriteID: b10f2b48b7281594bb8a24a6511a35af
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_6
+      name: EmojiOne_7
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 8
-        height: 8
+        x: 384
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fe68dd028e5301448aa9bf5ddca25c0
-      internalID: -2071798273
+      spriteID: 10a600f9329dc2246a897e89f4d283cd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_7
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 16
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1525ff3a1fbb39499a742bceef27dd1
-      internalID: 496090015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: advent_tilemap_8
+      name: EmojiOne_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 8
-        height: 8
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d14dac1b5eed5db40a793aa8b2eaca22
-      internalID: -1960512393
+      spriteID: 66cffa363b90ab14787d8a5b90cf4502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_9
+      name: EmojiOne_9
       rect:
         serializedVersion: 2
-        x: 8
-        y: 8
-        width: 8
-        height: 8
+        x: 128
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f63c47642441500468ae8ea70dc5b3a7
-      internalID: -1190815809
+      spriteID: 55cf3d409c9b89349b1e1bdc1cc224ad
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_10
+      name: EmojiOne_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 8
-        width: 8
-        height: 8
+        x: 256
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be402e717641f7a41be0aed020332a36
-      internalID: 330188167
+      spriteID: 2a9e58eaf96feef42bcefa1cf257193f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_11
+      name: EmojiOne_11
       rect:
         serializedVersion: 2
-        x: 24
-        y: 8
-        width: 8
-        height: 8
+        x: 384
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eae11c9962c3c0e4d8b5b1c555b7c08d
-      internalID: -462079412
+      spriteID: 2489120affc155840ae6a7be2e93ce19
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_12
+      name: EmojiOne_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 8
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b9ae15694225d14280082b468315858
-      internalID: -551058328
+      spriteID: 412349a150598d14da4d7140df5c0286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_13
+      name: EmojiOne_13
       rect:
         serializedVersion: 2
-        x: 8
+        x: 128
         y: 0
-        width: 8
-        height: 8
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6138708e47ed3ef46b8161a63d1e7e85
-      internalID: 2051035671
+      spriteID: a937464b42bb3634782dea34c6becb6c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_14
+      name: EmojiOne_5
       rect:
         serializedVersion: 2
-        x: 16
+        x: 256
         y: 0
-        width: 8
-        height: 8
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d0dab133c5185440b329d454d3ff1a2
-      internalID: 685283957
+      spriteID: b0f933b217682124dbfc5e6b89abe3d0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: advent_tilemap_15
+      name: EmojiOne_14
       rect:
         serializedVersion: 2
-        x: 24
-        y: 0
-        width: 8
-        height: 8
+        x: 128
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97c81b9ef842f9d43be25b19e3d9269b
-      internalID: 1188103139
+      spriteID: f7235c763afe4434e8bb666750a41096
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
-    customData: 
     physicsShape: []
     bones: []
-    spriteID: 23effb3956912de46a330fe24e704ef3
-    internalID: 0
+    spriteID: 3e32d8f5477abfc43b19066e8ad5032e
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
-    spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":8.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
-    nameFileIdTable:
-      advent_tilemap_0: -7100265086127913775
-      advent_tilemap_1: 779422024703702028
-      advent_tilemap_10: 330188167
-      advent_tilemap_11: -462079412
-      advent_tilemap_12: -551058328
-      advent_tilemap_13: 2051035671
-      advent_tilemap_14: 685283957
-      advent_tilemap_15: 1188103139
-      advent_tilemap_2: 988069843
-      advent_tilemap_3: 2090145411
-      advent_tilemap_4: 1197972680
-      advent_tilemap_5: -818835467
-      advent_tilemap_6: -2071798273
-      advent_tilemap_7: 496090015
-      advent_tilemap_8: -1960512393
-      advent_tilemap_9: -1190815809
-  mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  spritePackingTag: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 

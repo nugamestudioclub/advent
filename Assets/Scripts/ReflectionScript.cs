@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static ReflectionScript;
 
 public class ReflectionScript : MonoBehaviour
 {
@@ -13,13 +12,16 @@ public class ReflectionScript : MonoBehaviour
     public delegate void TilesStateChange(Vector3Int[] cell_changes, Tilemap map, CellChangeType type);
     public event TilesStateChange OnReflectionTilesChanged;
 
+    public delegate void CopyDataChange(bool is_clear, TileBase[] tile_data, Vector3Int[] pos_data, Tilemap map);
+    public event CopyDataChange OnCopyDataChange;
+
     [Serializable]
     private struct CopyData
     {
         public bool HasData;
         public TileBase[] CopyTilesBuffer;
         public Vector3Int[] CopyPositionsBuffer;
-        public Vector3Int BoundsPosition;
+        public BoundsInt Bounds;
     }
 
     [SerializeField] private Tilemap m_mainGrid;
@@ -60,7 +62,7 @@ public class ReflectionScript : MonoBehaviour
         m_copyData = new CopyData();
         m_copyData.CopyTilesBuffer = new TileBase[(bounds.xMax - bounds.xMin) * (bounds.yMax - bounds.yMin)];
         m_copyData.CopyPositionsBuffer = new Vector3Int[(bounds.xMax - bounds.xMin) * (bounds.yMax - bounds.yMin)];
-        m_copyData.BoundsPosition = bounds.position;
+        m_copyData.Bounds = bounds;
 
         // both allPositionsWithin and GetTilesBlockNonAlloc are sequentially consistent
         int index = 0;
@@ -68,6 +70,7 @@ public class ReflectionScript : MonoBehaviour
         m_mainGrid.GetTilesBlockNonAlloc(bounds, m_copyData.CopyTilesBuffer);
 
         m_copyData.HasData = true;
+        OnCopyDataChange?.Invoke(false, m_copyData.CopyTilesBuffer, m_copyData.CopyPositionsBuffer, m_mainGrid);
 
         locus.Pulse();
     }
@@ -89,13 +92,18 @@ public class ReflectionScript : MonoBehaviour
         // keep track of cell changes in this func
         var event_cell_changes = new List<Vector3Int>();
 
+        // compute the two origins needed for conversion
+        var source_origin = new Vector3Int(Mathf.FloorToInt(m_copyData.Bounds.center.x), Mathf.FloorToInt(m_copyData.Bounds.center.y));
+        var target_origin = new Vector3Int(Mathf.FloorToInt(copy_dest_bounds.center.x), Mathf.FloorToInt(copy_dest_bounds.center.y));
+
         // go through every position, and if a valid reflection tile is possible, add it to the tile change list
         var changes = new List<TileChangeData>();
         for (int i = 0; i < m_copyData.CopyPositionsBuffer.Length; i++)
         {
-            // remap our position to be correctly placed with respect to the dest locus' position
-            var offset = m_copyData.CopyPositionsBuffer[i] - m_copyData.BoundsPosition;
-            var target_position = copy_dest_bounds.position + offset;
+            // remap our position to be correctly placed with respect to the dest locus' origin
+            var offset = m_copyData.CopyPositionsBuffer[i] - source_origin;
+
+            var target_position = target_origin + offset;
 
             // if the copy-dest bounds dont contain the relative position OR we dont have a copy tile OR there's a blocking tile in main, go to next
             if (!copy_dest_bounds.Contains(target_position)
@@ -120,6 +128,7 @@ public class ReflectionScript : MonoBehaviour
 
         // invoke that we added some cells
         OnReflectionTilesChanged?.Invoke(event_cell_changes.ToArray(), m_reflectionGrid, CellChangeType.Created);
+        OnCopyDataChange?.Invoke(true, null, null, null);
 
         // change cache statuses
         m_copyData.HasData = false;
