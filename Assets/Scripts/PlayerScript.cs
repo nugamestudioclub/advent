@@ -127,6 +127,11 @@ public class PlayerScript : MonoBehaviour
             m_verticalVelocity = 0f;
         }
 
+        if (m_verticalVelocity > 0.05f && BonkCheck(out var _)) // if we hit our head and are moving upwards, reset our yvelo to 0
+        {
+            m_verticalVelocity = 0f;
+        }
+
         HandleCoyoteTime(is_grounded);
 
         // if (grounded or in coyote time), jump down, and under the yvelo limit to jump, apply impulse
@@ -155,7 +160,17 @@ public class PlayerScript : MonoBehaviour
 
     private bool BoxcastCheck(out RaycastHit2D hit)
     {
-        hit = Physics2D.BoxCast(m_boxcastOrigin.position, m_boxcastSize, 0f, Vector2.down, m_travelDistance, m_validGround);
+        return Boxcast(Vector2.down, out hit);
+    }
+
+    private bool BonkCheck(out RaycastHit2D hit)
+    {
+        return Boxcast(Vector2.up, out hit);
+    }
+
+    private bool Boxcast(Vector2 dir, out RaycastHit2D hit)
+    {
+        hit = Physics2D.BoxCast(m_boxcastOrigin.position, m_boxcastSize, 0f,  dir, m_travelDistance, m_validGround);
 
         return hit.collider != null;
     }
